@@ -6,7 +6,6 @@ export default function App() {
     <div>
       <img alt='webpack with logo' src={image} />
       <div className='header'>Hello, Webpack!</div>
-      <div>{process.env.REACT_APP_HOST}</div>
     </div>
   );
 }

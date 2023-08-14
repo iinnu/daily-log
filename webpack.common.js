@@ -13,12 +13,12 @@ dotenv.config({
 
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, 'src/index.jsx'),
+    main: path.resolve(__dirname, 'src/index.tsx'),
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)?$/i,
+        test: /\.(js|jsx|ts|tsx)?$/i,
         use: 'babel-loader',
         exclude: /node_modules/,
       },
