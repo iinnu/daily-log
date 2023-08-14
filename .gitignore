@@ -1,0 +1,19 @@
+# macOS
+.DS_*
+
+# build
+dist
+
+# log
+*.log
+logs
+
+# dependency
+node_modules
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
