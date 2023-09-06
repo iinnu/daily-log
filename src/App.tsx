@@ -1,11 +1,14 @@
-import image from '@/assets/logo-on-white-bg.png';
-import './App.css';
+import { ThemeProvider } from 'styled-components';
+
+import GlobalStyles from '../styles/GlobalStyles';
+import theme from '../styles/theme';
+import { TodoPage } from './pages/TodoPage';
 
 export default function App() {
   return (
-    <div>
-      <img alt="webpack with logo" src={image} />
-      <div className="header">Hello, Webpack!</div>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <TodoPage />
+    </ThemeProvider>
   );
 }
