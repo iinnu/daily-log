@@ -1,5 +1,7 @@
 import { Header } from '@/components/Header';
 import { Text } from '@/components/common/Text';
+import { Wrapper } from './TodoPage.style';
+import { Box } from '@/components/common/Box';
 
 export const TodoPage = () => {
   return (
@@ -9,6 +11,10 @@ export const TodoPage = () => {
           DAILY LOG
         </Text>
       </Header>
+      <Wrapper>
+        <Box>sidebar</Box>
+        <Box>todo</Box>
+      </Wrapper>
     </>
   );
 };
