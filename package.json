@@ -1,14 +1,23 @@
 {
-  "name": "react-webpack",
+  "name": "daily-log",
+  "author": "iinnu",
+  "license": "ISC",
   "version": "1.0.0",
-  "description": "sample react project with webpack",
+  "description": "web project with react, typescript, webpack",
   "scripts": {
     "start": "npm run dev -- --open",
     "dev": "NODE_ENV=development webpack serve --config ./webpack.dev.js",
-    "build": "NODE_ENV=production webpack --config ./webpack.prod.js"
+    "build": "NODE_ENV=production webpack --config ./webpack.prod.js",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --fix",
+    "format": "prettier --cache --write .",
+    "prepare": "husky install"
   },
-  "author": "inu",
-  "license": "ISC",
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "npm run format",
+      "npm run lint"
+    ]
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -33,6 +42,7 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-unused-imports": "^3.0.0",
     "html-webpack-plugin": "^5.5.3",
+    "lint-staged": "^14.0.1",
     "mini-css-extract-plugin": "^2.7.6",
     "prettier": "^3.0.3",
     "style-loader": "^3.3.3",
@@ -40,6 +50,7 @@
     "typescript": "^5.2.2",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^4.15.1",
+    "husky": "^8.0.0"
   }
 }
