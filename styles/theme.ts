@@ -8,7 +8,7 @@ const colors = {
 };
 
 const fontSize = {
-  title: 30,
+  title: 25,
   subTitle: 16,
   text: 14,
 };
