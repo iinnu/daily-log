@@ -6,6 +6,15 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+
+  body {
+    height: 100vh;
+  }
+
+  #root {
+    height: 100%;
+    position: relative;
+  }
 `;
 
 export default GlobalStyles;
