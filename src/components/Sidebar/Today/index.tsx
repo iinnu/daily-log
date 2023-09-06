@@ -1,5 +1,5 @@
 import { Card } from '@/components/common/Card';
-import { monthNames } from '@/constants/monthNames';
+import { MONTH_NAMES } from '@/constants';
 import { DateStyled, MonthStyled, YearStyled } from './Today.style';
 
 export const Today = () => {
@@ -19,7 +19,7 @@ export const Today = () => {
 const getTodayData = () => {
   const today = new Date();
   const date = today.getDate();
-  const month = monthNames[today.getMonth()];
+  const month = MONTH_NAMES[today.getMonth()];
   const year = today.getFullYear();
 
   return { date, month, year };
