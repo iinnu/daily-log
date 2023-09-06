@@ -1,6 +1,14 @@
 import { ReactNode } from 'react';
-import { TextStyled } from './Text.style';
+import { TextStypedProps, TextStyled } from './Text.style';
 
-export const Text = ({ children }: { children: ReactNode }) => {
-  return <TextStyled>{children}</TextStyled>;
+interface TextProps extends TextStypedProps {
+  children?: ReactNode;
+}
+
+export const Text = ({ ...props }: TextProps) => {
+  return (
+    <TextStyled $color={props.$color} $fontSize={props.$fontSize} $fontWeight={props.$fontWeight}>
+      {props.children}
+    </TextStyled>
+  );
 };

@@ -1,3 +1,5 @@
+import { DefaultTheme } from 'styled-components';
+
 const colors = {
   primary: '#384B60',
   white: '#ffffff',
@@ -6,18 +8,26 @@ const colors = {
 };
 
 const fontSize = {
-  title: 20,
+  title: 30,
   subTitle: 16,
   text: 14,
 };
 
-const theme = {
+const fontWeight = {
+  regular: 300,
+  medium: 500,
+  semiBold: 700,
+  bold: 900,
+};
+
+const theme: DefaultTheme = {
   colors,
   fontSize,
+  fontWeight,
 };
 
 export type Colors = typeof colors;
 export type FontSize = typeof fontSize;
-export type Theme = typeof theme;
+export type FontWeight = typeof fontWeight;
 
 export default theme;

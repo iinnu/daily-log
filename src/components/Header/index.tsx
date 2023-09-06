@@ -1,10 +1,7 @@
-import { Text } from '../common/Text';
+import { ReactNode } from 'react';
+
 import { HeaderStyled } from './Header.style';
 
-export const Header = () => {
-  return (
-    <HeaderStyled>
-      <Text>DAILY LOG</Text>
-    </HeaderStyled>
-  );
+export const Header = ({ children }: { children: ReactNode }) => {
+  return <HeaderStyled>{children}</HeaderStyled>;
 };
