@@ -3,11 +3,11 @@ import { Text } from '@/components/common/Text';
 import { Footer } from '@/components/Footer';
 import { Sidebar } from '@/components/Sidebar';
 import { Todos } from '@/components/Todos';
-import { Wrapper } from './TodoPage.style';
+import { Container, Wrapper } from './TodoPage.style';
 
 export const TodoPage = () => {
   return (
-    <>
+    <Container>
       <Header>
         <Text $color="white" $fontSize="title" $fontWeight="semiBold">
           DAILY LOG
@@ -18,6 +18,6 @@ export const TodoPage = () => {
         <Todos />
       </Wrapper>
       <Footer />
-    </>
+    </Container>
   );
 };
