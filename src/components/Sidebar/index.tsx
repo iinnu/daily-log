@@ -1,21 +1,21 @@
 import { Box } from '../common/Box';
-import { Container } from './Sidebar.style';
+import { Container, Wrapper } from './Sidebar.style';
 import { Comment } from './Comment';
 import { Today } from './Today';
 import { Weather } from './Weather';
 
 export const Sidebar = () => {
   return (
-    <div>
+    <Container>
       <Box>
-        <Container>
+        <Wrapper>
           <Today />
           <Weather />
-        </Container>
+        </Wrapper>
       </Box>
       <Box>
         <Comment />
       </Box>
-    </div>
+    </Container>
   );
 };

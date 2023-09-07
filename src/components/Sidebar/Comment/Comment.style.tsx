@@ -13,6 +13,7 @@ export const TextArea = styled.textarea`
 export const ButtonArea = styled.div`
   display: flex;
   justify-content: end;
+  gap: 5px;
 `;
 
 export const Button = styled.button`
