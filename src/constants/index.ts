@@ -1,3 +1,8 @@
+import sun from '@/assets/sun.png';
+import cloud from '@/assets/cloud.png';
+import cloudy from '@/assets/cloudy.png';
+import rainy from '@/assets/rainy.png';
+
 export const MONTH_NAMES = [
   'January',
   'February',
@@ -12,3 +17,15 @@ export const MONTH_NAMES = [
   'November',
   'December',
 ];
+
+export const WEATHER_IMAGES = {
+  1: sun,
+  2: rainy,
+  3: cloudy,
+  4: cloud,
+};
+
+export const INITIAL_LOCATION = {
+  x: 89,
+  y: 90,
+};
