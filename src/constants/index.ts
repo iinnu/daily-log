@@ -29,3 +29,32 @@ export const INITIAL_LOCATION = {
   x: 89,
   y: 90,
 };
+
+export const MOCK_TODOS = [
+  {
+    category: 'Study',
+    todos: [
+      {
+        title: '모듈 시스템 공부',
+        completed: true,
+      },
+      {
+        title: '웹팩 공부',
+        completed: false,
+      },
+    ],
+  },
+  {
+    category: 'Workout',
+    todos: [],
+  },
+  {
+    category: 'Housework',
+    todos: [
+      {
+        title: '빨래 널기',
+        completed: false,
+      },
+    ],
+  },
+];
