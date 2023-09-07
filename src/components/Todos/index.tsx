@@ -1,9 +1,10 @@
 import { useState } from 'react';
 
+import { Button } from '../common/Button';
 import { TodoEmpty } from './TodoEmpty';
 import { Category } from './Category';
 import { TodoItem } from './TodoItem';
-import { Container, TodoWrapper, TodoItemsWrapper, FlexItem, CategoryAddButton } from './Todos.style';
+import { Container, TodoWrapper, TodoItemsWrapper, FlexItem } from './Todos.style';
 
 interface TodoItemData {
   title: string;
@@ -16,34 +17,7 @@ interface TodoData {
 }
 
 export const Todos = () => {
-  const [todos] = useState<TodoData[]>([
-    {
-      category: 'Study',
-      todos: [
-        {
-          title: '모듈 시스템 공부',
-          completed: true,
-        },
-        {
-          title: '웹팩 공부',
-          completed: false,
-        },
-      ],
-    },
-    {
-      category: 'Workout',
-      todos: [],
-    },
-    {
-      category: 'Housework',
-      todos: [
-        {
-          title: '빨래 널기',
-          completed: false,
-        },
-      ],
-    },
-  ]);
+  const [todos] = useState<TodoData[]>([]);
 
   return (
     <Container>
@@ -64,7 +38,9 @@ export const Todos = () => {
           ))
         )}
       </FlexItem>
-      <CategoryAddButton>카테고리 추가</CategoryAddButton>
+      <Button $variant="contained" $size="md">
+        카테고리 추가
+      </Button>
     </Container>
   );
 };
