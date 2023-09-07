@@ -1,8 +1,8 @@
 import { Header } from '@/components/Header';
 import { Text } from '@/components/common/Text';
-import { Box } from '@/components/common/Box';
 import { Footer } from '@/components/Footer';
 import { Sidebar } from '@/components/Sidebar';
+import { Todo } from '@/components/Todo';
 import { Wrapper } from './TodoPage.style';
 
 export const TodoPage = () => {
@@ -15,7 +15,7 @@ export const TodoPage = () => {
       </Header>
       <Wrapper>
         <Sidebar />
-        <Box>todo</Box>
+        <Todo />
       </Wrapper>
       <Footer />
     </>
