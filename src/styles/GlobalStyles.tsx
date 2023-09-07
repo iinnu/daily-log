@@ -15,6 +15,10 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
     position: relative;
   }
+
+  button {
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyles;

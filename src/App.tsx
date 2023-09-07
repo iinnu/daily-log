@@ -1,7 +1,7 @@
 import { ThemeProvider } from 'styled-components';
 
-import GlobalStyles from '../styles/GlobalStyles';
-import theme from '../styles/theme';
+import GlobalStyles from './styles/GlobalStyles';
+import theme from './styles/theme';
 import { TodoPage } from './pages/TodoPage';
 
 export default function App() {

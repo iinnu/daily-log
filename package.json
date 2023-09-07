@@ -6,10 +6,10 @@
   "description": "web project with react, typescript, webpack",
   "scripts": {
     "start": "npm run dev -- --open",
-    "dev": "NODE_ENV=development webpack serve --config ./webpack.dev.js",
-    "build": "NODE_ENV=production webpack --config ./webpack.prod.js",
+    "dev": "cross-env NODE_ENV=development webpack serve --config ./webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack.prod.js",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --fix",
-    "format": "prettier --cache --write .",
+    "format": "prettier --cache --write src",
     "prepare": "husky install"
   },
   "lint-staged": {
@@ -19,6 +19,8 @@
     ]
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
+    "dayjs": "^1.11.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.0.7"

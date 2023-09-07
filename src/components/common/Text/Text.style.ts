@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { Colors, FontSize, FontWeight } from 'styles/theme';
+import { Colors, FontSize, FontWeight } from '@/styles/theme';
 
 export interface TextStypedProps {
   $color?: keyof Colors;
