@@ -9,7 +9,7 @@ export interface WeatherItem {
   category: WeatherCategory;
   fcstDate: string;
   fcstTime: string;
-  fcstValue: number;
+  fcstValue: string;
   nx: number;
   ny: number;
 }
@@ -51,9 +51,9 @@ export const getBaseDateAndBaseTime = () => {
 
 export const getWeatherData = (weatherItems: WeatherItem[]) => {
   const index = 6;
-  const rainy = weatherItems[index].fcstValue;
-  const skyStatus = weatherItems[index * 3].fcstValue;
-  const temp = weatherItems[index * 4].fcstValue;
+  const rainy = parseInt(weatherItems[index].fcstValue);
+  const skyStatus = parseInt(weatherItems[index * 3].fcstValue);
+  const temp = parseInt(weatherItems[index * 4].fcstValue);
   const weatherData = { weatherImage: WEATHER_IMAGES.rainy, temp };
 
   if (rainy === 0) {

@@ -1,5 +1,6 @@
 import { Box } from '../common/Box';
 import { Container } from './Sidebar.style';
+import { Comment } from './Comment';
 import { Today } from './Today';
 import { Weather } from './Weather';
 
@@ -13,10 +14,7 @@ export const Sidebar = () => {
         </Container>
       </Box>
       <Box>
-        <Container>
-          <Today />
-          <Weather />
-        </Container>
+        <Comment />
       </Box>
     </div>
   );
