@@ -19,10 +19,10 @@ export const MONTH_NAMES = [
 ];
 
 export const WEATHER_IMAGES = {
-  1: sun,
-  2: rainy,
-  3: cloudy,
-  4: cloud,
+  sun,
+  rainy,
+  cloud,
+  cloudy,
 };
 
 export const INITIAL_LOCATION = {

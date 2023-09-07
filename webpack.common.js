@@ -34,9 +34,7 @@ module.exports = {
     new ProvidePlugin({
       React: 'react',
     }),
-    new EnvironmentPlugin({
-      REACT_APP_API_KEY: JSON.stringify(process.env.REACT_APP_API_KEY),
-    }),
+    new EnvironmentPlugin(['REACT_APP_API_KEY']),
   ],
   resolve: {
     alias: {
