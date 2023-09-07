@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Card } from '@/components/common/Card';
 import { WeatherResponseBody, fetchWeatherForecast, getWeatherData } from './utils';
+import { Img, ImgBase, Wrapper } from './Weather.style';
+import { Text } from '@/components/common/Text';
 
 interface WeatherData {
   weatherImage: string;
@@ -21,8 +23,14 @@ export const Weather = () => {
 
   return (
     <Card title="WEATHER">
-      <img src={weatherData.weatherImage} />
-      <div>{weatherData.temp}</div>
+      <Wrapper>
+        <ImgBase>
+          <Img src={weatherData.weatherImage} alt="weather forecast" />
+        </ImgBase>
+        <Text $fontSize="subTitle" $fontWeight="semiBold">
+          {weatherData.temp}℃
+        </Text>
+      </Wrapper>
     </Card>
   );
 };

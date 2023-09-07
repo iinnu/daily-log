@@ -5,11 +5,19 @@ import { Weather } from './Weather';
 
 export const Sidebar = () => {
   return (
-    <Box>
-      <Container>
-        <Today />
-        <Weather />
-      </Container>
-    </Box>
+    <div>
+      <Box>
+        <Container>
+          <Today />
+          <Weather />
+        </Container>
+      </Box>
+      <Box>
+        <Container>
+          <Today />
+          <Weather />
+        </Container>
+      </Box>
+    </div>
   );
 };
