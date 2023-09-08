@@ -20,17 +20,3 @@ export const TodoWrapper = styled.div`
 export const TodoItemsWrapper = styled.div`
   padding: 15px 30px;
 `;
-
-export const CategoryAddButton = styled.button`
-  background-color: ${(props) => props.theme.colors.primary};
-  color: ${(props) => props.theme.colors.white};
-  font-weight: ${(props) => props.theme.fontWeight.semiBold};
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-`;
-
-export const Form = styled.form`
-  display: flex;
-  gap: 10px;
-`;

@@ -4,6 +4,9 @@ import { Card } from '@/components/common/Card';
 import { ButtonArea, CommentBox, TextArea } from './Comment.style';
 import { Button } from '@/components/common/Button';
 
+/**
+ * @todo 엔터 포함해서 출력하도록 css 수정
+ */
 export const Comment = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [comment, setComment] = useState('The darkest hour is just before the dawn.');
