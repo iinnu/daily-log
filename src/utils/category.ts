@@ -10,21 +10,28 @@ export const initCategoryList = () => {
   setLocalStorageItem(CATEGORY_LIST, []);
 };
 
-export const AddCategory = (category: string) => {
+export const getCategoryListFromStorage = () => {
   const categoryList: string[] | null = getLocalStorageItem(CATEGORY_LIST);
+  return categoryList;
+};
+
+export const addCategoryToStorage = (category: string): boolean => {
+  const categoryList = getCategoryListFromStorage();
 
   if (!categoryList) {
     alert('페이지를 새로고침하고 다시 시도해주세요.');
-    return;
+    return false;
   }
 
   if (categoryList.find((e) => e === category)) {
     alert('이미 존재하는 카테고리입니다.');
-    return;
+    return false;
   }
 
   categoryList.push(category);
 
   setLocalStorageItem(CATEGORY_LIST, categoryList);
   setLocalStorageItem(category, []);
+
+  return true;
 };

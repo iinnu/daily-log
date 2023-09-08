@@ -1,3 +1,5 @@
+/* eslint-disable unused-imports/no-unused-imports */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
 
 import { Category } from './Category';
@@ -5,40 +7,31 @@ import { TodoEmpty } from './TodoEmpty';
 import { TodoItem } from './TodoItem';
 import { CategoryAddForm } from './CategoryAddForm';
 import { Container, TodoWrapper, TodoItemsWrapper, FlexItem } from './Todos.style';
+import { getCategoryListFromStorage } from '@/utils/category';
 
 interface TodoItemData {
+  key: string;
   title: string;
   completed: boolean;
 }
 
-interface TodoData {
-  category: string;
-  todos: TodoItemData[];
-}
-
 export const Todos = () => {
-  const [todos] = useState<TodoData[]>([]);
+  const [categoryList, setCategoryList] = useState<string[]>(getCategoryListFromStorage() ?? []);
+
+  const addCategory = (category: string) => setCategoryList((prev) => [...prev, category]);
 
   return (
     <Container>
       <FlexItem>
-        {todos.length === 0 ? (
-          <TodoEmpty />
-        ) : (
-          todos.map((item, index) => (
-            <TodoWrapper key={`${item.category}-${index}`}>
-              <Category title={item.category} />
-              <TodoItemsWrapper>
-                {item.todos.map((todo, index) => {
-                  const id = `${todo.title}-${index}`;
-                  return <TodoItem key={id} id={id} title={todo.title} completed={todo.completed} />;
-                })}
-              </TodoItemsWrapper>
+        {categoryList.length === 0 && <TodoEmpty />}
+        {categoryList.length > 0 &&
+          categoryList.map((category) => (
+            <TodoWrapper key={category}>
+              <Category title={category} />
             </TodoWrapper>
-          ))
-        )}
+          ))}
       </FlexItem>
-      <CategoryAddForm />
+      <CategoryAddForm addCategory={addCategory} />
     </Container>
   );
 };

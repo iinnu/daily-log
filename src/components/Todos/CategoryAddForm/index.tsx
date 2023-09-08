@@ -4,15 +4,17 @@ import { useFormWithEditView } from '@/hooks/useFormWithEditView';
 import { Button } from '@/components/common/Button';
 import { Input } from '@/components/common/Input';
 import { Form } from './CategoryAddForm.style';
-import { AddCategory } from '@/utils/category';
+import { addCategoryToStorage } from '@/utils/category';
 
-export const CategoryAddForm = () => {
+export const CategoryAddForm = ({ addCategory }: { addCategory: (cateogry: string) => void }) => {
   const { editInput, isEditMode, onToggleMode, onChange } = useFormWithEditView();
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    AddCategory(editInput);
+    if (addCategoryToStorage(editInput)) {
+      addCategory(editInput);
+    }
   };
 
   return (
