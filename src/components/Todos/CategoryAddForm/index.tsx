@@ -27,10 +27,10 @@ export const CategoryAddForm = ({ addCategory }: { addCategory: (cateogry: strin
       {isEditMode && (
         <Form onSubmit={onSubmit}>
           <Input name="category" value={editInput} onChange={onChange} />
-          <Button $variant="contained" $size="md">
+          <Button type="submit" $variant="contained" $size="md">
             추가
           </Button>
-          <Button $variant="outlined" $size="md" onClick={onToggleMode}>
+          <Button type="button" $variant="outlined" $size="md" onClick={onToggleMode}>
             취소
           </Button>
         </Form>
