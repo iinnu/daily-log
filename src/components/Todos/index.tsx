@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 
+import { AddCategory } from '@/utils/category';
 import { Button } from '../common/Button';
-import { TodoEmpty } from './TodoEmpty';
+import { Input } from '../common/Input';
 import { Category } from './Category';
+import { TodoEmpty } from './TodoEmpty';
 import { TodoItem } from './TodoItem';
-import { Container, TodoWrapper, TodoItemsWrapper, FlexItem } from './Todos.style';
+import { Container, TodoWrapper, TodoItemsWrapper, FlexItem, Form } from './Todos.style';
 
 interface TodoItemData {
   title: string;
@@ -18,6 +20,20 @@ interface TodoData {
 
 export const Todos = () => {
   const [todos] = useState<TodoData[]>([]);
+  const [category, setCategory] = useState('');
+
+  const handleCategoryInputChange: ChangeEventHandler<HTMLInputElement> = (e) => setCategory(e.target.value);
+
+  const handleCategorySumbit: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+
+    if (category.trim() === '') {
+      alert('카테고리명을 입력해주세요.');
+      return;
+    }
+
+    AddCategory(category);
+  };
 
   return (
     <Container>
@@ -38,9 +54,12 @@ export const Todos = () => {
           ))
         )}
       </FlexItem>
-      <Button $variant="contained" $size="md">
-        카테고리 추가
-      </Button>
+      <Form onSubmit={handleCategorySumbit}>
+        <Input name="category" value={category} onChange={handleCategoryInputChange} />
+        <Button $variant="contained" $size="md">
+          카테고리 추가
+        </Button>
+      </Form>
     </Container>
   );
 };

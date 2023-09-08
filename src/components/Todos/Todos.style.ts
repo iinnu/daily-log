@@ -29,3 +29,8 @@ export const CategoryAddButton = styled.button`
   padding: 10px;
   border-radius: 5px;
 `;
+
+export const Form = styled.form`
+  display: flex;
+  gap: 10px;
+`;
