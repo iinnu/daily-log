@@ -5,6 +5,7 @@ import { Container, FlexItem } from './Todos.style';
 import { CategoryAddForm } from './CategoryAddForm';
 import { TodoEmpty } from './TodoEmpty';
 import { TodoList } from './TodoList';
+import { TodoProvider } from './TodoContext';
 
 export const Todos = () => {
   const [categoryList, setCategoryList] = useState<string[]>(getCategoryListFromStorage() ?? []);
@@ -17,7 +18,11 @@ export const Todos = () => {
         {categoryList.length === 0 ? (
           <TodoEmpty />
         ) : (
-          categoryList.map((category) => <TodoList key={category} category={category} />)
+          categoryList.map((category) => (
+            <TodoProvider key={category} value={category}>
+              <TodoList />
+            </TodoProvider>
+          ))
         )}
       </FlexItem>
       <CategoryAddForm addCategory={addCategory} />

@@ -1,7 +1,13 @@
 import { styled } from 'styled-components';
 
 export const TodoItemStyled = styled.div`
+  display: flex;
+  align-items: center;
   margin-bottom: 8px;
+`;
+
+export const CheckboxBase = styled.div`
+  flex-grow: 1;
 `;
 
 export const LabelStyled = styled.label`

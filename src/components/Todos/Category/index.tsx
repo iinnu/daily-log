@@ -1,16 +1,18 @@
 import { Text } from '@/components/common/Text';
 import { CategoryStyled, TodoAddButton } from './Category.style';
+import { useTodoContext } from '../TodoContext/useTodoContext';
 
 interface CategoryProps {
-  title: string;
   onAddClick: () => void;
 }
 
-export const Category = ({ title, onAddClick }: CategoryProps) => {
+export const Category = ({ onAddClick }: CategoryProps) => {
+  const category = useTodoContext();
+
   return (
     <CategoryStyled>
       <Text $color="primary" $fontSize="subTitle" $fontWeight="bold">
-        {title}
+        {category}
       </Text>
       <TodoAddButton onClick={onAddClick}>+</TodoAddButton>
     </CategoryStyled>

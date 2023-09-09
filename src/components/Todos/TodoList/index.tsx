@@ -6,9 +6,11 @@ import { useFormWithEditView } from '@/hooks/useFormWithEditView';
 import { addTodoToStorage, getTodoListFromStorage } from '@/utils/todo';
 import { Category } from '../Category';
 import { TodoItem } from '../TodoItem';
-import { TodoWrapper, Form, TodoItemsWrapper } from './TodoList.style';
+import { TodoListWrapper, TodoItemsWrapper, Form } from './TodoList.style';
+import { useTodoContext } from '../TodoContext/useTodoContext';
 
-export const TodoList = ({ category }: { category: string }) => {
+export const TodoList = () => {
+  const category = useTodoContext();
   const [todoList, setTodoList] = useState(getTodoListFromStorage(category) ?? []);
   const { editInput, isEditMode, onChange, onToggleMode } = useFormWithEditView();
 
@@ -23,8 +25,8 @@ export const TodoList = ({ category }: { category: string }) => {
   };
 
   return (
-    <TodoWrapper key={category}>
-      <Category title={category} onAddClick={onToggleMode} />
+    <TodoListWrapper>
+      <Category onAddClick={onToggleMode} />
       <TodoItemsWrapper>
         {todoList.map((todo) => (
           <TodoItem key={todo.id} id={todo.id} title={todo.title} completed={todo.completed} />
@@ -41,6 +43,6 @@ export const TodoList = ({ category }: { category: string }) => {
           </Form>
         )}
       </TodoItemsWrapper>
-    </TodoWrapper>
+    </TodoListWrapper>
   );
 };

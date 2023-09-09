@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { FaPen, FaTrashCan } from 'react-icons/fa6';
 
-import { HiddenCheckbox, LabelStyled, TodoItemStyled } from './TodoItem.style';
+import { IconButton, IconButtons } from '@/components/common/IconButton';
+import { CheckboxBase, HiddenCheckbox, LabelStyled, TodoItemStyled } from './TodoItem.style';
 
 export const TodoItem = ({ id, title, completed }: { id: string; title: string; completed: boolean }) => {
   const [isCompleted, setIsCompleted] = useState(completed);
@@ -9,8 +11,18 @@ export const TodoItem = ({ id, title, completed }: { id: string; title: string; 
 
   return (
     <TodoItemStyled>
-      <HiddenCheckbox type="checkbox" id={id} checked={isCompleted} onChange={toggleCompleted} />
-      <LabelStyled htmlFor={id}>{title}</LabelStyled>
+      <CheckboxBase>
+        <HiddenCheckbox type="checkbox" id={id} checked={isCompleted} onChange={toggleCompleted} />
+        <LabelStyled htmlFor={id}>{title}</LabelStyled>
+      </CheckboxBase>
+      <IconButtons>
+        <IconButton>
+          <FaPen />
+        </IconButton>
+        <IconButton>
+          <FaTrashCan />
+        </IconButton>
+      </IconButtons>
     </TodoItemStyled>
   );
 };
