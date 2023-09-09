@@ -30,6 +30,8 @@ export const INITIAL_LOCATION = {
   y: 90,
 };
 
+export const CATEGORY_LIST = 'categoryList';
+
 export const MOCK_TODOS = [
   {
     category: 'Study',

@@ -1,38 +1,38 @@
-import { FormEventHandler, useState } from 'react';
+import { FormEventHandler } from 'react';
+
+import { addTodo } from '@/context/reducer/todoReducer';
+import { addTodoToStorage } from '@/utils/todo';
+import { useTodoDispatchContext, useTodoStateContext } from '@/context/hooks';
+import { useFormWithEditView } from '@/hooks/useFormWithEditView';
 
 import { Input } from '@/components/common/Input';
 import { Button } from '@/components/common/Button';
-import { useFormWithEditView } from '@/hooks/useFormWithEditView';
-import { addTodoToStorage, getTodoListFromStorage } from '@/utils/todo';
 import { Category } from '../Category';
 import { TodoItem } from '../TodoItem';
 import { TodoListWrapper, TodoItemsWrapper, Form } from './TodoList.style';
-import { useTodoContext } from '../TodoContext/useTodoContext';
 
 export const TodoList = () => {
-  const category = useTodoContext();
-  const [todoList, setTodoList] = useState(getTodoListFromStorage(category) ?? []);
   const { editInput, isEditMode, onChange, onToggleMode } = useFormWithEditView();
+  const { todoList, category } = useTodoStateContext();
+  const dispatch = useTodoDispatchContext();
 
-  const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+  const handleTodoSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
     const todo = addTodoToStorage(category, editInput);
 
-    if (todo) {
-      setTodoList((prev) => [...prev, todo]);
-    }
+    if (todo) dispatch(addTodo(todo));
   };
 
   return (
     <TodoListWrapper>
-      <Category onAddClick={onToggleMode} />
+      <Category title={category} onAddClick={onToggleMode} />
       <TodoItemsWrapper>
         {todoList.map((todo) => (
-          <TodoItem key={todo.id} id={todo.id} title={todo.title} completed={todo.completed} />
+          <TodoItem key={todo.id} item={todo} />
         ))}
         {isEditMode && (
-          <Form onSubmit={onSubmit}>
+          <Form onSubmit={handleTodoSubmit}>
             <Input value={editInput} onChange={onChange} />
             <Button type="submit" $variant="contained">
               추가

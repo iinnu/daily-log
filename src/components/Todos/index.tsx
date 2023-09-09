@@ -1,16 +1,12 @@
-import { useState } from 'react';
-
-import { getCategoryListFromStorage } from '@/utils/category';
-import { Container, FlexItem } from './Todos.style';
+import { useCategoryContext } from '@/context/hooks';
+import { TodoProvider } from '@/context/provider';
 import { CategoryAddForm } from './CategoryAddForm';
 import { TodoEmpty } from './TodoEmpty';
 import { TodoList } from './TodoList';
-import { TodoProvider } from './TodoContext';
+import { Container, FlexItem } from './Todos.style';
 
 export const Todos = () => {
-  const [categoryList, setCategoryList] = useState<string[]>(getCategoryListFromStorage() ?? []);
-
-  const addCategory = (category: string) => setCategoryList((prev) => [...prev, category]);
+  const { categoryList } = useCategoryContext();
 
   return (
     <Container>
@@ -19,13 +15,13 @@ export const Todos = () => {
           <TodoEmpty />
         ) : (
           categoryList.map((category) => (
-            <TodoProvider key={category} value={category}>
+            <TodoProvider key={category} category={category}>
               <TodoList />
             </TodoProvider>
           ))
         )}
       </FlexItem>
-      <CategoryAddForm addCategory={addCategory} />
+      <CategoryAddForm />
     </Container>
   );
 };

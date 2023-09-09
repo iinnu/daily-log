@@ -10,7 +10,8 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "types/*": ["@types/*"]
     },
     "allowJs": true,
     "esModuleInterop": true,

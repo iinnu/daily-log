@@ -3,10 +3,12 @@ import { FormEventHandler } from 'react';
 import { useFormWithEditView } from '@/hooks/useFormWithEditView';
 import { Button } from '@/components/common/Button';
 import { Input } from '@/components/common/Input';
-import { Form } from './CategoryAddForm.style';
 import { addCategoryToStorage } from '@/utils/category';
+import { useCategoryContext } from '@/context/hooks';
+import { Form } from './CategoryAddForm.style';
 
-export const CategoryAddForm = ({ addCategory }: { addCategory: (cateogry: string) => void }) => {
+export const CategoryAddForm = () => {
+  const { addCategory } = useCategoryContext();
   const { editInput, isEditMode, onToggleMode, onChange } = useFormWithEditView();
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
@@ -19,12 +21,7 @@ export const CategoryAddForm = ({ addCategory }: { addCategory: (cateogry: strin
 
   return (
     <>
-      {!isEditMode && (
-        <Button $variant="contained" $size="md" onClick={onToggleMode}>
-          카테고리 추가
-        </Button>
-      )}
-      {isEditMode && (
+      {isEditMode ? (
         <Form onSubmit={onSubmit}>
           <Input name="category" value={editInput} onChange={onChange} />
           <Button type="submit" $variant="contained" $size="md">
@@ -34,6 +31,10 @@ export const CategoryAddForm = ({ addCategory }: { addCategory: (cateogry: strin
             취소
           </Button>
         </Form>
+      ) : (
+        <Button $variant="contained" $size="md" onClick={onToggleMode}>
+          카테고리 추가
+        </Button>
       )}
     </>
   );

@@ -1,6 +1,6 @@
+import { CategoryList } from 'types/todo';
+import { CATEGORY_LIST } from '@/constants';
 import { getLocalStorageItem, setLocalStorageItem } from './localStorage';
-
-const CATEGORY_LIST = 'category';
 
 export const initCategoryList = () => {
   const categoryList = getLocalStorageItem(CATEGORY_LIST);
@@ -11,7 +11,7 @@ export const initCategoryList = () => {
 };
 
 export const getCategoryListFromStorage = () => {
-  const categoryList: string[] | null = getLocalStorageItem(CATEGORY_LIST);
+  const categoryList: CategoryList | null = getLocalStorageItem(CATEGORY_LIST);
   return categoryList;
 };
 

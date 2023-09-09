@@ -41,7 +41,9 @@ export const Comment = () => {
         <>
           <TextArea value={textAreaValue} onChange={handleTextAreaValueChange} />
           <ButtonArea>
-            <Button onClick={handleCancelClick}>CANCEL</Button>
+            <Button $variant="outlined" onClick={handleCancelClick}>
+              CANCEL
+            </Button>
             <Button $variant="contained" onClick={handleDoneClick}>
               DONE
             </Button>
