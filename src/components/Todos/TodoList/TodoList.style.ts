@@ -5,6 +5,7 @@ export const TodoListWrapper = styled.div`
 `;
 
 export const TodoItemsWrapper = styled.div`
+  width: 500px;
   padding: 15px 30px;
 `;
 

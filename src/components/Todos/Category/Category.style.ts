@@ -8,13 +8,3 @@ export const CategoryStyled = styled.div`
   border: 2px solid ${(props) => props.theme.colors.primary};
   border-radius: 20px;
 `;
-
-export const TodoAddButton = styled.button`
-  padding: 0 5px;
-  font-size: 20px;
-  font-weight: ${(props) => props.theme.fontWeight.medium};
-  border: 1px solid ${(props) => props.theme.colors.primary};
-  border-radius: 50px;
-  background-color: ${(props) => props.theme.colors.primary};
-  color: ${(props) => props.theme.colors.white};
-`;

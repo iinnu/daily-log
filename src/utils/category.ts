@@ -1,6 +1,6 @@
 import { CategoryList } from 'types/todo';
 import { CATEGORY_LIST } from '@/constants';
-import { getLocalStorageItem, setLocalStorageItem } from './localStorage';
+import { getLocalStorageItem, removeLocalStorageItem, setLocalStorageItem } from './localStorage';
 
 export const initCategoryList = () => {
   const categoryList = getLocalStorageItem(CATEGORY_LIST);
@@ -32,6 +32,19 @@ export const addCategoryToStorage = (category: string): boolean => {
 
   setLocalStorageItem(CATEGORY_LIST, categoryList);
   setLocalStorageItem(category, []);
+
+  return true;
+};
+
+export const deleteCategoryFromStorage = (category: string): boolean => {
+  const categoryList = getCategoryListFromStorage();
+
+  if (!categoryList) return false;
+
+  const newCategoryList = categoryList.filter((item) => item !== category);
+
+  setLocalStorageItem(CATEGORY_LIST, newCategoryList);
+  removeLocalStorageItem(category);
 
   return true;
 };
