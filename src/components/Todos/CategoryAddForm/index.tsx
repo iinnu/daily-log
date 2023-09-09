@@ -1,38 +1,40 @@
 import { FormEventHandler } from 'react';
 
-import { useFormWithEditView } from '@/hooks/useFormWithEditView';
+import { useConditionalForm } from '@/hooks/useConditionalForm';
+import { useCategoryContext } from '@/context/hooks';
+import { addCategoryToStorage } from '@/utils/category';
+
 import { Button } from '@/components/common/Button';
 import { Input } from '@/components/common/Input';
-import { addCategoryToStorage } from '@/utils/category';
-import { useCategoryContext } from '@/context/hooks';
 import { Form } from './CategoryAddForm.style';
 
 export const CategoryAddForm = () => {
   const { addCategory } = useCategoryContext();
-  const { editInput, isEditMode, onToggleMode, onChange } = useFormWithEditView();
+  const { input, isFormMode, toggleMode, initInput, onChangeInput } = useConditionalForm();
 
-  const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+  const handleCategoryAddFormSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    if (addCategoryToStorage(editInput)) {
-      addCategory(editInput);
+    if (addCategoryToStorage(input)) {
+      addCategory(input);
+      initInput();
     }
   };
 
   return (
     <>
-      {isEditMode ? (
-        <Form onSubmit={onSubmit}>
-          <Input name="category" value={editInput} onChange={onChange} />
+      {isFormMode ? (
+        <Form onSubmit={handleCategoryAddFormSubmit}>
+          <Input name="category" value={input} onChange={onChangeInput} />
           <Button type="submit" $variant="contained" $size="md">
             추가
           </Button>
-          <Button type="button" $variant="outlined" $size="md" onClick={onToggleMode}>
+          <Button type="button" $variant="outlined" $size="md" onClick={toggleMode}>
             취소
           </Button>
         </Form>
       ) : (
-        <Button $variant="contained" $size="md" onClick={onToggleMode}>
+        <Button $variant="contained" $size="md" onClick={toggleMode}>
           카테고리 추가
         </Button>
       )}

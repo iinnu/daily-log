@@ -3,14 +3,14 @@ import { TodoProvider } from '@/context/provider';
 import { CategoryAddForm } from './CategoryAddForm';
 import { TodoEmpty } from './TodoEmpty';
 import { TodoList } from './TodoList';
-import { Container, FlexItem } from './Todos.style';
+import { Container, Inner } from './Todos.style';
 
 export const Todos = () => {
   const { categoryList } = useCategoryContext();
 
   return (
     <Container>
-      <FlexItem>
+      <Inner>
         {categoryList.length === 0 ? (
           <TodoEmpty />
         ) : (
@@ -20,7 +20,7 @@ export const Todos = () => {
             </TodoProvider>
           ))
         )}
-      </FlexItem>
+      </Inner>
       <CategoryAddForm />
     </Container>
   );

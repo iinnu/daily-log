@@ -1,17 +1,17 @@
-import { FaCirclePlus, FaTrashCan } from 'react-icons/fa6';
+import { FaTrashCan } from 'react-icons/fa6';
 
-import { Text } from '@/components/common/Text';
-import { CategoryStyled } from './Category.style';
-import { IconButton, IconButtons } from '@/components/common/IconButton';
 import { deleteCategoryFromStorage } from '@/utils/category';
 import { useCategoryContext } from '@/context/hooks';
 
+import { Text } from '@/components/common/Text';
+import { IconButton } from '@/components/common/IconButton';
+import { CategoryStyled } from './Category.style';
+
 interface CategoryProps {
   title: string;
-  onAddClick: () => void;
 }
 
-export const Category = ({ title, onAddClick }: CategoryProps) => {
+export const Category = ({ title }: CategoryProps) => {
   const { deleteCategory } = useCategoryContext();
 
   const handleCategoryDeleteClick = () => {
@@ -19,19 +19,15 @@ export const Category = ({ title, onAddClick }: CategoryProps) => {
       deleteCategory(title);
     }
   };
+
   return (
     <CategoryStyled>
       <Text $color="primary" $fontSize="subTitle" $fontWeight="bold">
         {title}
       </Text>
-      <IconButtons>
-        <IconButton onClick={onAddClick}>
-          <FaCirclePlus size="16px" />
-        </IconButton>
-        <IconButton onClick={handleCategoryDeleteClick}>
-          <FaTrashCan size="16px" />
-        </IconButton>
-      </IconButtons>
+      <IconButton onClick={handleCategoryDeleteClick}>
+        <FaTrashCan size="16px" />
+      </IconButton>
     </CategoryStyled>
   );
 };

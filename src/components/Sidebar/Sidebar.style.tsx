@@ -1,7 +1,8 @@
 import { styled } from 'styled-components';
 
 export const Container = styled.div`
-  flex-grow: 1;
+  flex-basis: 400px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   gap: 30px;

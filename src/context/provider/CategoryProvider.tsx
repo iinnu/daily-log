@@ -1,4 +1,3 @@
- 
 import { ReactNode, createContext, useState } from 'react';
 
 import { CategoryList } from 'types/todo';
