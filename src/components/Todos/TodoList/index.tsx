@@ -2,7 +2,7 @@ import { useTodoStateContext } from '@/context/hooks';
 
 import { Category } from '../Category';
 import { TodoItem } from '../TodoItem';
-import { TodoUpdateForm } from '../TodoUpdateForm';
+import { TodoAddForm } from '../TodoAddForm';
 import { TodoListWrapper, TodoItemsWrapper } from './TodoList.style';
 
 export const TodoList = () => {
@@ -15,7 +15,7 @@ export const TodoList = () => {
         {todoList.map((todo) => (
           <TodoItem key={todo.id} item={todo} />
         ))}
-        <TodoUpdateForm />
+        <TodoAddForm />
       </TodoItemsWrapper>
     </TodoListWrapper>
   );

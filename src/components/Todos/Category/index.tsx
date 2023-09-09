@@ -22,11 +22,11 @@ export const Category = ({ title }: CategoryProps) => {
 
   return (
     <CategoryStyled>
-      <Text $color="primary" $fontSize="subTitle" $fontWeight="bold">
+      <Text $color="white" $fontSize="subTitle" $fontWeight="bold">
         {title}
       </Text>
       <IconButton onClick={handleCategoryDeleteClick}>
-        <FaTrashCan size="16px" />
+        <FaTrashCan color="white" size="16px" />
       </IconButton>
     </CategoryStyled>
   );

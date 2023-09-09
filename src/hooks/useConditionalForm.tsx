@@ -5,26 +5,23 @@ interface UseConditionalForm {
   input: string;
   isFormMode: boolean;
   toggleMode: () => void;
-  initInput: () => void;
+  resetInput: () => void;
   updateView: () => void;
   onChangeInput: ChangeEventHandler<HTMLInputElement>;
 }
 
-export const useConditionalForm = (): UseConditionalForm => {
-  const [view, setView] = useState('');
-  const [input, setInput] = useState('');
-  const [isFormMode, setIsFormMode] = useState(false);
+export const useConditionalForm = (initInput = '', initView = '', initMode = false): UseConditionalForm => {
+  const [view, setView] = useState(initView);
+  const [input, setInput] = useState(initInput);
+  const [isFormMode, setIsFormMode] = useState(initMode);
 
   const toggleMode = () => setIsFormMode((prev) => !prev);
 
-  const initInput = () => setInput('');
+  const resetInput = () => setInput('');
 
-  const updateView = () => {
-    setView(input);
-    setInput('');
-  };
+  const updateView = () => setView(input);
 
-  const handleEditValueChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+  const onChangeInput: ChangeEventHandler<HTMLInputElement> = (e) => {
     setInput(e.target.value);
   };
 
@@ -32,9 +29,9 @@ export const useConditionalForm = (): UseConditionalForm => {
     view,
     input,
     isFormMode,
-    initInput,
+    resetInput,
     toggleMode,
     updateView,
-    onChangeInput: handleEditValueChange,
+    onChangeInput,
   };
 };

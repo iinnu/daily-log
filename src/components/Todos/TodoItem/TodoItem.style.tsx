@@ -1,9 +1,15 @@
 import { styled } from 'styled-components';
 
+import { Form } from '@/components/common/Form';
+
+export const FormStyled = styled(Form)`
+  padding: 5px 0;
+`;
+
 export const TodoItemStyled = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  padding: 5px 0;
 `;
 
 export const CheckboxBase = styled.div`
