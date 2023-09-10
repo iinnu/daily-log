@@ -24,7 +24,7 @@ jobs:
         run: npm ci
 
       - name: Generate Environment Variables File for Production
-        env: REACT_APP_API_KEY= ${{ secrets.REACT_APP_API_KEY }}
+        env: REACT_APP_API_KEY=${{ secrets.REACT_APP_API_KEY }}
         run: |
           echo "REACT_APP_API_KEY=$REACT_APP_API_KEY" >> .env.production
 
@@ -40,7 +40,7 @@ jobs:
 
       - name: Deploy S3 bucket
         run: |
-          aws s3 sync ./dist \
+          aws s3 sync \
             --region ap-northeast-2 \
-            build s3://iinnu-daily-log \
+            dist s3://iinnu-daily-log \
             --delete
