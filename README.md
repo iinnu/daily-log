@@ -4,12 +4,25 @@
 
 ## 주요 기능
 ### ✅ 오늘의 날씨
+![오늘의 날씨](https://github.com/iinnu/daily-log/assets/55791128/23c562d0-fe99-4973-a829-07eb99fdf690)  
+
+- 오늘 날짜와 날씨를 보여줍니다. (대구 지역 기준)
 
 ### ✅ 메모
+![메모](https://github.com/iinnu/daily-log/assets/55791128/a36c6d6c-d1a8-482a-a456-a1a85f58d086)
+
+- 간단한 메모를 남기고 저장할 수 있습니다.
 
 ### ✅ 카테고리 기능
+<img width='500' src='https://github.com/iinnu/daily-log/assets/55791128/44f458f1-e333-4dad-93fd-c1315fc77b3b' />
+
+- 카테고리를 추가하고 삭제할 수 있습니다.
 
 ### ✅ 투두 기능
+<img width='500' src='https://github.com/iinnu/daily-log/assets/55791128/aa996bb9-a7ec-451e-8db0-1bdd5a7c0e97' />
+
+- 투두를 추가하고 수정, 삭제할 수 있습니다.
+- 체크박스로 완료 여부를 체크할 수 있습니다.
 
 ## 기술 스택
 
