@@ -1,5 +1,5 @@
 import { Box } from '../common/Box';
-import { Comment } from './Comment';
+import { Memo } from './Memo';
 import { Today } from './Today';
 import { Weather } from './Weather';
 import { Container, Wrapper } from './styles';
@@ -14,7 +14,7 @@ export const Sidebar = () => {
         </Wrapper>
       </Box>
       <Box>
-        <Comment />
+        <Memo />
       </Box>
     </Container>
   );
