@@ -8,6 +8,7 @@ export const CommentBox = styled.div`
 export const TextArea = styled.textarea`
   padding: 20px;
   line-height: 1.5;
+  width: 100%;
 `;
 
 export const ButtonArea = styled.div`
