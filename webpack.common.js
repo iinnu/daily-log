@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const { ProvidePlugin, EnvironmentPlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const env = process.env.NODE_ENV === 'development' ? '.env' : '.env.production.local';
+const env = process.env.NODE_ENV === 'development' ? '.env' : '.env.production';
 
 dotenv.config({
   path: path.resolve(__dirname, env),
