@@ -1,8 +1,12 @@
 import { ChangeEvent, useState } from 'react';
 
 import { Card } from '@/components/common/Card';
-import { Button, ButtonArea, CommentBox, TextArea } from './Comment.style';
+import { ButtonArea, CommentBox, TextArea } from './Comment.style';
+import { Button } from '@/components/common/Button';
 
+/**
+ * @todo 엔터 포함해서 출력하도록 css 수정
+ */
 export const Comment = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [comment, setComment] = useState('The darkest hour is just before the dawn.');
@@ -27,7 +31,9 @@ export const Comment = () => {
         <>
           <CommentBox>{comment}</CommentBox>
           <ButtonArea>
-            <Button onClick={handleEditClick}>EDIT</Button>
+            <Button $variant="contained" onClick={handleEditClick}>
+              EDIT
+            </Button>
           </ButtonArea>
         </>
       )}
@@ -35,8 +41,12 @@ export const Comment = () => {
         <>
           <TextArea value={textAreaValue} onChange={handleTextAreaValueChange} />
           <ButtonArea>
-            <Button onClick={handleDoneClick}>DONE</Button>
-            <Button onClick={handleCancelClick}>CANCEL</Button>
+            <Button $variant="outlined" onClick={handleCancelClick}>
+              CANCEL
+            </Button>
+            <Button $variant="contained" onClick={handleDoneClick}>
+              DONE
+            </Button>
           </ButtonArea>
         </>
       )}

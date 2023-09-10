@@ -9,6 +9,9 @@ interface WeatherData {
   temp: number;
 }
 
+/**
+ * @todo 날씨, 온도 로딩에 스켈레톤 이미지 추가
+ */
 export const Weather = () => {
   const [weatherData, setWeatherData] = useState<WeatherData>({ weatherImage: '', temp: 0 });
 

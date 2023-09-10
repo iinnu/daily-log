@@ -1,23 +1,21 @@
 import { Header } from '@/components/Header';
-import { Text } from '@/components/common/Text';
-import { Box } from '@/components/common/Box';
 import { Footer } from '@/components/Footer';
 import { Sidebar } from '@/components/Sidebar';
-import { Wrapper } from './TodoPage.style';
+import { Todos } from '@/components/Todos';
+import { CategoryProvider } from '@/context/provider';
+import { Container, Wrapper } from './TodoPage.style';
 
 export const TodoPage = () => {
   return (
-    <>
-      <Header>
-        <Text $color="white" $fontSize="title" $fontWeight="semiBold">
-          DAILY LOG
-        </Text>
-      </Header>
+    <Container>
+      <Header />
       <Wrapper>
         <Sidebar />
-        <Box>todo</Box>
+        <CategoryProvider>
+          <Todos />
+        </CategoryProvider>
       </Wrapper>
       <Footer />
-    </>
+    </Container>
   );
 };

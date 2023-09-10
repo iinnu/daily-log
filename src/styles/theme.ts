@@ -9,7 +9,7 @@ const colors = {
 
 const fontSize = {
   title: 25,
-  subTitle: 16,
+  subTitle: 18,
   text: 14,
 };
 

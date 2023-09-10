@@ -1,7 +1,15 @@
-import { ReactNode } from 'react';
-
+import { Text } from '@/components/common/Text';
 import { HeaderStyled } from './Header.style';
 
-export const Header = ({ children }: { children: ReactNode }) => {
-  return <HeaderStyled>{children}</HeaderStyled>;
+/**
+ * @todo 시간나면 다크모드 구현해보기
+ */
+export const Header = () => {
+  return (
+    <HeaderStyled>
+      <Text $color="white" $fontSize="title" $fontWeight="semiBold">
+        DAILY LOG
+      </Text>
+    </HeaderStyled>
+  );
 };
