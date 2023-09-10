@@ -40,7 +40,7 @@ jobs:
 
       - name: Deploy S3 bucket
         run: |
-          aws s3 sync \
+          aws s3 sync ./dist \
             --region ap-northeast-2 \
             build s3://iinnu-daily-log \
             --delete
