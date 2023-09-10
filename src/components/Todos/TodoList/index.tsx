@@ -3,7 +3,7 @@ import { useTodoStateContext } from '@/context/hooks';
 import { Category } from '../Category';
 import { TodoItem } from '../TodoItem';
 import { TodoAddForm } from '../TodoAddForm';
-import { TodoListWrapper, TodoItemsWrapper } from './TodoList.style';
+import { TodoListWrapper, TodoItemsWrapper } from './styles';
 
 export const TodoList = () => {
   const { todoList, category } = useTodoStateContext();

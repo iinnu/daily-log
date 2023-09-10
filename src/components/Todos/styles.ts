@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { BoxStyled } from '../common/Box/Box.style';
+import { BoxStyled } from '../common/Box/styles';
 
 export const Container = styled.div`
   flex-grow: 1;

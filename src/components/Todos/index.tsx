@@ -3,7 +3,7 @@ import { TodoProvider } from '@/context/provider';
 import { CategoryAddForm } from './CategoryAddForm';
 import { TodoEmpty } from './TodoEmpty';
 import { TodoList } from './TodoList';
-import { Container, Inner } from './Todos.style';
+import { Container, Inner } from './styles';
 
 export const Todos = () => {
   const { categoryList } = useCategoryContext();
