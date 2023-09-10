@@ -58,7 +58,7 @@ export const TodoItem = ({ item }: TodoItemProps) => {
   ) : (
     <TodoItemStyled>
       <CheckboxBase>
-        <HiddenCheckbox type="checkbox" id={item.id} onChange={handleTodoCompletedChange} />
+        <HiddenCheckbox type="checkbox" id={item.id} checked={item.completed} onChange={handleTodoCompletedChange} />
         <LabelStyled htmlFor={item.id}>{view}</LabelStyled>
       </CheckboxBase>
       <IconButtons>
