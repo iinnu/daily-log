@@ -13,7 +13,8 @@ const GlobalStyles = createGlobalStyle`
 
   #root {
     height: 100%;
-    position: relative;
+    display: flex;
+    align-items: center;
   }
 
   button {

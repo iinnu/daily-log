@@ -1,8 +1,10 @@
 import { styled } from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 1200px;
-  margin: auto;
+  width: 1200px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px 5px #c9c9c9;
+  border-radius: 10px;
 `;
 
 export const Wrapper = styled.main`

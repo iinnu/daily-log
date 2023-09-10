@@ -1,5 +1,5 @@
 import { Text } from '../common/Text';
-import { FooterStyled } from './Footer.style';
+import { FooterStyled } from './styles';
 
 /**
  * @todo 하단에 고정되도록 수정해야 함

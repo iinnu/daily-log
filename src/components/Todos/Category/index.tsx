@@ -5,7 +5,7 @@ import { useCategoryContext } from '@/context/hooks';
 
 import { Text } from '@/components/common/Text';
 import { IconButton } from '@/components/common/IconButton';
-import { CategoryStyled } from './Category.style';
+import { CategoryStyled } from './styles';
 
 interface CategoryProps {
   title: string;

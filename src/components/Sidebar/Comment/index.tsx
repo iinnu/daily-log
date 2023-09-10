@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 
 import { Card } from '@/components/common/Card';
-import { ButtonArea, CommentBox, TextArea } from './Comment.style';
+import { ButtonArea, CommentBox, TextArea } from './styles';
 import { Button } from '@/components/common/Button';
 
 /**

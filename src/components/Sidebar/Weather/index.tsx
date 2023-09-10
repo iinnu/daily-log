@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Card } from '@/components/common/Card';
 import { WeatherResponseBody, fetchWeatherForecast, getWeatherData } from './utils';
-import { Img, ImgBase, Wrapper } from './Weather.style';
+import { Img, ImgBase, Wrapper } from './styles';
 import { Text } from '@/components/common/Text';
 
 interface WeatherData {

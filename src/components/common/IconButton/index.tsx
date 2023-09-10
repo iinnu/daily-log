@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { IconButtonBase, IconButtonProps, IconButtonStyled, IconButtonsStyled } from './IconButton.style';
+import { IconButtonBase, IconButtonProps, IconButtonStyled, IconButtonsStyled } from './styles';
 
 export const IconButton = ({ children, ...props }: IconButtonProps) => {
   return (

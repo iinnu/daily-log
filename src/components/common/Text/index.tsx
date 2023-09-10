@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { TextStypedProps, TextStyled } from './Text.style';
+import { TextStypedProps, TextStyled } from './styles';
 
 interface TextProps extends TextStypedProps {
   children?: ReactNode;
