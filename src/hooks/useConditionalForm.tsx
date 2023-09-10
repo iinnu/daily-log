@@ -7,7 +7,7 @@ interface UseConditionalForm {
   toggleMode: () => void;
   resetInput: () => void;
   updateView: () => void;
-  onChangeInput: ChangeEventHandler<HTMLInputElement>;
+  onChangeInput: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
 }
 
 export const useConditionalForm = (initInput = '', initView = '', initMode = false): UseConditionalForm => {
@@ -21,7 +21,7 @@ export const useConditionalForm = (initInput = '', initView = '', initMode = fal
 
   const updateView = () => setView(input);
 
-  const onChangeInput: ChangeEventHandler<HTMLInputElement> = (e) => {
+  const onChangeInput: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
     setInput(e.target.value);
   };
 

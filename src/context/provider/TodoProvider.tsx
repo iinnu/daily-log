@@ -1,8 +1,8 @@
 import { Dispatch, ReactNode, createContext, useReducer } from 'react';
 
 import { TodoItemData } from 'types/todo';
-import reducer, { TodoAction } from '../reducer/todoReducer';
 import { getTodoListFromStorage } from '@/utils/todo';
+import reducer, { TodoAction } from '../reducer/todoReducer';
 
 interface TodoStateContextObject {
   category: string;
