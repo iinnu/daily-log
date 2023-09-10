@@ -5,10 +5,6 @@ import { Button } from '@/components/common/Button';
 import { Card } from '@/components/common/Card';
 import { ButtonArea, CommentBox, TextArea } from './styles';
 
-/**
- * @todo 엔터 포함해서 출력하도록 css 수정
- */
-
 export const Memo = () => {
   const memo = getMemoFromStorage();
   const { view, input, isFormMode, onChangeInput, toggleMode, updateView } = useConditionalForm(memo ?? '', memo ?? '');
@@ -21,17 +17,7 @@ export const Memo = () => {
 
   return (
     <Card title="MEMO">
-      {!isFormMode && (
-        <>
-          <CommentBox>{view}</CommentBox>
-          <ButtonArea>
-            <Button $variant="contained" onClick={toggleMode}>
-              EDIT
-            </Button>
-          </ButtonArea>
-        </>
-      )}
-      {isFormMode && (
+      {isFormMode ? (
         <>
           <TextArea value={input} onChange={onChangeInput} />
           <ButtonArea>
@@ -40,6 +26,15 @@ export const Memo = () => {
             </Button>
             <Button $variant="contained" onClick={handleMemoFormSubmit}>
               DONE
+            </Button>
+          </ButtonArea>
+        </>
+      ) : (
+        <>
+          <CommentBox>{view}</CommentBox>
+          <ButtonArea>
+            <Button $variant="contained" onClick={toggleMode}>
+              EDIT
             </Button>
           </ButtonArea>
         </>
