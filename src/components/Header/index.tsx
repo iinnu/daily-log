@@ -1,5 +1,5 @@
 import { Text } from '@/components/common/Text';
-import { HeaderStyled } from './Header.style';
+import { HeaderStyled } from './styles';
 
 /**
  * @todo 시간나면 다크모드 구현해보기

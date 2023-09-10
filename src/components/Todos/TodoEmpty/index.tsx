@@ -1,6 +1,6 @@
 import cat from '@/assets/cat.png';
 import { Text } from '@/components/common/Text';
-import { Container } from './TodoEmpty.style';
+import { Container } from './styles';
 
 export const TodoEmpty = () => {
   return (

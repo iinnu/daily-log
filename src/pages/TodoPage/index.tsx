@@ -7,7 +7,7 @@ import { Footer } from '@/components/Footer';
 import { Sidebar } from '@/components/Sidebar';
 import { Todos } from '@/components/Todos';
 import { CategoryProvider } from '@/context/provider';
-import { Container, Wrapper } from './TodoPage.style';
+import { Container, Wrapper } from './styles';
 
 export const TodoPage = () => {
   useEffect(() => {

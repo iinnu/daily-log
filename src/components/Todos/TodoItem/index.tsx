@@ -10,7 +10,7 @@ import { TodoItemData } from 'types/todo';
 import { IconButton, IconButtons } from '@/components/common/IconButton';
 import { Input } from '@/components/common/Input';
 import { Button } from '@/components/common/Button';
-import { FormStyled, CheckboxBase, HiddenCheckbox, LabelStyled, TodoItemStyled } from './TodoItem.style';
+import { FormStyled, CheckboxBase, HiddenCheckbox, LabelStyled, TodoItemStyled } from './styles';
 
 interface TodoItemProps {
   item: TodoItemData;

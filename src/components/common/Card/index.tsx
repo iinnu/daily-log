@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Text } from '../Text';
-import { CardStyled } from './Card.style';
+import { CardStyled } from './styles';
 
 interface CardProps {
   title?: string;

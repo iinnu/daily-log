@@ -1,6 +1,6 @@
 import { Card } from '@/components/common/Card';
 import { MONTH_NAMES } from '@/constants';
-import { DateStyled, MonthStyled, YearStyled } from './Today.style';
+import { DateStyled, MonthStyled, YearStyled } from './styles';
 
 export const Today = () => {
   const { date, month, year } = getTodayData();

@@ -1,8 +1,8 @@
 import { Box } from '../common/Box';
-import { Container, Wrapper } from './Sidebar.style';
 import { Comment } from './Comment';
 import { Today } from './Today';
 import { Weather } from './Weather';
+import { Container, Wrapper } from './styles';
 
 export const Sidebar = () => {
   return (

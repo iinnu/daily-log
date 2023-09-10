@@ -1,1 +1,1 @@
-export * from './Button.style';
+export * from './styles';
