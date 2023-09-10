@@ -30,6 +30,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
+      title: 'DAILY LOG',
     }),
     new ProvidePlugin({
       React: 'react',
