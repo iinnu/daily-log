@@ -1,25 +1,26 @@
-import { Dispatch, ReactNode, createContext, useReducer } from 'react';
+import { ReactNode, createContext } from 'react';
 
 import { TodoItemData } from 'types/todo';
-import { getTodoListFromStorage } from '@/utils/todo';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 import reducer, { TodoAction } from '../reducer/todoReducer';
 
 interface TodoStateContextObject {
-  category: string;
   todoList: TodoItemData[];
+  category: string;
+  dispatch: (action: TodoAction) => void;
 }
 
 export const TodoStateContext = createContext<TodoStateContextObject | null>(null);
-export const TodoDispatchContext = createContext<Dispatch<TodoAction> | null>(null);
 
 export const TodoProvider = ({ category, children }: { category: string; children: ReactNode }) => {
-  const [todoList, dispatch] = useReducer(reducer, getTodoListFromStorage(category) ?? []);
+  const [todoList, setTodoList] = useLocalStorage(category, [] as TodoItemData[]);
+  const dispatch = (action: TodoAction) => setTodoList(() => reducer(todoList, action));
 
-  const state = { category, todoList };
+  const value = {
+    todoList,
+    category,
+    dispatch,
+  };
 
-  return (
-    <TodoStateContext.Provider value={state}>
-      <TodoDispatchContext.Provider value={dispatch}>{children}</TodoDispatchContext.Provider>
-    </TodoStateContext.Provider>
-  );
+  return <TodoStateContext.Provider value={value}>{children}</TodoStateContext.Provider>;
 };

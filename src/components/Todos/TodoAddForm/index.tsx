@@ -1,8 +1,8 @@
 import { FormEventHandler } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import { useConditionalForm } from '@/hooks/useConditionalForm';
-import { useTodoDispatchContext, useTodoStateContext } from '@/context/hooks';
-import { addTodoToStorage } from '@/utils/todo';
+import { useTodoStateContext } from '@/context/hooks';
 import { addTodo } from '@/context/reducer/todoReducer';
 
 import { Form } from '@/components/common/Form';
@@ -11,18 +11,12 @@ import { Input } from '@/components/common/Input';
 
 export const TodoAddForm = () => {
   const { input, isFormMode, toggleMode, resetInput, onChangeInput } = useConditionalForm();
-  const { category } = useTodoStateContext();
-  const dispatch = useTodoDispatchContext();
+  const { dispatch } = useTodoStateContext();
 
   const handleTodoUpdateSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-
-    const todo = addTodoToStorage(category, input);
-
-    if (todo) {
-      dispatch(addTodo(todo));
-      resetInput();
-    }
+    dispatch(addTodo({ id: uuidv4(), title: input, completed: false }));
+    resetInput();
   };
 
   return (

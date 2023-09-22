@@ -15,7 +15,10 @@ export const CategoryProvider = ({ children }: { children: ReactNode }) => {
   const [categoryList, setCategoryList] = useLocalStorage<CategoryList>('categoryList', []);
 
   const addCategory = (category: string) => setCategoryList((prev) => [...prev, category]);
-  const deleteCategory = (category: string) => setCategoryList((prev) => prev.filter((item) => item !== category));
+  const deleteCategory = (category: string) => {
+    setCategoryList((prev) => prev.filter((item) => item !== category));
+    localStorage.removeItem(category);
+  };
 
   const value = { categoryList, addCategory, deleteCategory };
 

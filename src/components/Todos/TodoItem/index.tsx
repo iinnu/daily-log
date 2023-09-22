@@ -2,8 +2,7 @@ import { ChangeEventHandler, FormEventHandler } from 'react';
 import { FaPen, FaTrashCan } from 'react-icons/fa6';
 
 import { useConditionalForm } from '@/hooks/useConditionalForm';
-import { useTodoDispatchContext, useTodoStateContext } from '@/context/hooks';
-import { deleteTodoFromStorage, updateTodoInStorage } from '@/utils/todo';
+import { useTodoStateContext } from '@/context/hooks';
 import { deleteTodo, toggleTodoCompleted, updateTodoTitle } from '@/context/reducer/todoReducer';
 
 import { TodoItemData } from 'types/todo';
@@ -18,31 +17,20 @@ interface TodoItemProps {
 
 export const TodoItem = ({ item }: TodoItemProps) => {
   const { view, input, isFormMode, toggleMode, updateView, onChangeInput } = useConditionalForm(item.title, item.title);
-  const { category } = useTodoStateContext();
-  const dispatch = useTodoDispatchContext();
+  const { dispatch } = useTodoStateContext();
 
   const handleTodoSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-
-    if (updateTodoInStorage(category, { ...item, title: input })) {
-      dispatch(updateTodoTitle(item.id, input));
-      updateView();
-      toggleMode();
-    }
+    dispatch(updateTodoTitle(item.id, input));
+    updateView();
   };
 
-  const handleTodoCompletedChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    const updated = { ...item, completed: e.target.checked };
-
-    if (updateTodoInStorage(category, updated)) {
-      dispatch(toggleTodoCompleted(updated.id, updated.completed));
-    }
+  const handleTodoCompletedChange: ChangeEventHandler<HTMLInputElement> = () => {
+    dispatch(toggleTodoCompleted(item.id));
   };
 
   const handleTodoDeleteClick = () => {
-    if (deleteTodoFromStorage(category, item.id)) {
-      dispatch(deleteTodo(item.id));
-    }
+    dispatch(deleteTodo(item.id));
   };
 
   return isFormMode ? (

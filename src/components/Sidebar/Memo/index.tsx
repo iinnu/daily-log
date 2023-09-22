@@ -1,17 +1,16 @@
 import { useConditionalForm } from '@/hooks/useConditionalForm';
-import { getMemoFromStorage, updateMemoInStorage } from '@/utils/memo';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 import { Button } from '@/components/common/Button';
 import { Card } from '@/components/common/Card';
 import { ButtonArea, CommentBox, TextArea } from './styles';
 
 export const Memo = () => {
-  const memo = getMemoFromStorage();
-  const { view, input, isFormMode, onChangeInput, toggleMode, updateView } = useConditionalForm(memo ?? '', memo ?? '');
+  const [memo, setMemo] = useLocalStorage('memo', '');
+  const { input, isFormMode, onChangeInput, toggleMode } = useConditionalForm(memo ?? '', memo ?? '');
 
   const handleMemoFormSubmit = () => {
-    updateMemoInStorage(input);
-    updateView();
+    setMemo(input);
     toggleMode();
   };
 
@@ -31,7 +30,7 @@ export const Memo = () => {
         </>
       ) : (
         <>
-          <CommentBox>{view}</CommentBox>
+          <CommentBox>{memo}</CommentBox>
           <ButtonArea>
             <Button $variant="contained" onClick={toggleMode}>
               EDIT

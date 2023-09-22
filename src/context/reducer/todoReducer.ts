@@ -18,7 +18,6 @@ interface DeleteTodoAction {
 interface ToggleTodoCompletedAction {
   type: typeof TOGGLE_TODO_COMPLETED;
   id: string;
-  completed: boolean;
 }
 
 interface UpdateTodoTitleAction {
@@ -41,11 +40,10 @@ export const deleteTodo = (id: string): DeleteTodoAction => {
   };
 };
 
-export const toggleTodoCompleted = (id: string, completed: boolean): ToggleTodoCompletedAction => {
+export const toggleTodoCompleted = (id: string): ToggleTodoCompletedAction => {
   return {
     type: TOGGLE_TODO_COMPLETED,
     id,
-    completed,
   };
 };
 
@@ -68,7 +66,7 @@ const reducer = (state: TodoItemData[], action: TodoAction): TodoItemData[] => {
     case TOGGLE_TODO_COMPLETED:
       return state.map((todo) => {
         if (todo.id !== action.id) return todo;
-        return { ...todo, completed: action.completed };
+        return { ...todo, completed: !todo.completed };
       });
     case UPDATE_TODO_TITLE:
       return state.map((todo) => {

@@ -2,7 +2,6 @@ import { FormEventHandler } from 'react';
 
 import { useConditionalForm } from '@/hooks/useConditionalForm';
 import { useCategoryContext } from '@/context/hooks';
-import { addCategoryToStorage } from '@/utils/category';
 
 import { Form } from '@/components/common/Form';
 import { Input } from '@/components/common/Input';
@@ -14,11 +13,8 @@ export const CategoryAddForm = () => {
 
   const handleCategoryAddFormSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-
-    if (addCategoryToStorage(input)) {
-      addCategory(input);
-      resetInput();
-    }
+    addCategory(input);
+    resetInput();
   };
 
   return isFormMode ? (

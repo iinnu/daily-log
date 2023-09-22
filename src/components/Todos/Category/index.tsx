@@ -1,6 +1,5 @@
 import { FaTrashCan } from 'react-icons/fa6';
 
-import { deleteCategoryFromStorage } from '@/utils/category';
 import { useCategoryContext } from '@/context/hooks';
 
 import { Text } from '@/components/common/Text';
@@ -14,11 +13,7 @@ interface CategoryProps {
 export const Category = ({ title }: CategoryProps) => {
   const { deleteCategory } = useCategoryContext();
 
-  const handleCategoryDeleteClick = () => {
-    if (deleteCategoryFromStorage(title)) {
-      deleteCategory(title);
-    }
-  };
+  const handleCategoryDeleteClick = () => deleteCategory(title);
 
   return (
     <CategoryStyled>
