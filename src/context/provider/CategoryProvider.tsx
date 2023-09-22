@@ -1,7 +1,7 @@
-import { ReactNode, createContext, useState } from 'react';
+import { ReactNode, createContext } from 'react';
 
 import { CategoryList } from 'types/todo';
-import { getCategoryListFromStorage } from '@/utils/category';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 interface CategoryContextObject {
   categoryList: CategoryList;
@@ -12,7 +12,7 @@ interface CategoryContextObject {
 export const CategoryContext = createContext<CategoryContextObject | null>(null);
 
 export const CategoryProvider = ({ children }: { children: ReactNode }) => {
-  const [categoryList, setCategoryList] = useState(getCategoryListFromStorage() ?? []);
+  const [categoryList, setCategoryList] = useLocalStorage<CategoryList>('categoryList', []);
 
   const addCategory = (category: string) => setCategoryList((prev) => [...prev, category]);
   const deleteCategory = (category: string) => setCategoryList((prev) => prev.filter((item) => item !== category));
